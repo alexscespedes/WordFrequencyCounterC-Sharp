@@ -13,11 +13,6 @@ class Program
 
         string[] words = cleanedInput.Split(' ', StringSplitOptions.RemoveEmptyEntries);
 
-        foreach (var word in words)
-        {
-            Console.WriteLine(word);
-        }
-
         Dictionary<string, int> wordFrequencies = new Dictionary<string, int>();
 
         foreach (var word in words)
@@ -33,7 +28,7 @@ class Program
         }
 
         Console.WriteLine("\nWord Frequencies:");
-        foreach (var kvp in wordFrequencies)
+        foreach (var kvp in wordFrequencies.OrderBy(kvp => kvp.Key))
         {
             Console.WriteLine($"{kvp.Key}: {kvp.Value}");
         }
