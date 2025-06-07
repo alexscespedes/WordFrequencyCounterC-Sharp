@@ -17,6 +17,26 @@ class Program
         {
             Console.WriteLine(word);
         }
+
+        Dictionary<string, int> wordFrequencies = new Dictionary<string, int>();
+
+        foreach (var word in words)
+        {
+            if (wordFrequencies.ContainsKey(word))
+            {
+                wordFrequencies[word]++;
+            }
+            else
+            {
+                wordFrequencies[word] = 1;
+            }
+        }
+
+        Console.WriteLine("\nWord Frequencies:");
+        foreach (var kvp in wordFrequencies)
+        {
+            Console.WriteLine($"{kvp.Key}: {kvp.Value}");
+        }
     }
 
     static string NormalizeText(string text)
